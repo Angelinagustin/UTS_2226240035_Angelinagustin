@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung THR dan PPH</title>
+</head>
+<body>
+    <h1>Hitung THR dan PPH</h1>
+    <label for="gajipokok"> Gaji Pokok</label>
+    <input type ="number" id ="totalgaji"><br><br>
+
+    <label for="tunjangantetap"> Tunjangantetap:</label>
+    <input type="number" id="tunjangan tetap" name="tunjangan tetap"/><br><br>
+
+    <label for="masaKerja">Masa Kerja</label>
+    <input type="number" id="masaKerja"><br><br>
+
+    <button onclick="hitung()">Hitung</button><br><br>
+
+    <p>THR: <span id="thr"></span></p>
+    <p>PPH: <span id="pph"></span></p>
+    <p>Total Pembayaran: <span id="totalPembayaran"></span></p>
+
+    <script>
+        function hitungTHR() {
+            const gajiPokok = parseint(document.getElementById('gajiPokok').value);
+            const tunjangan = parseint(document.getElementById('tunjangan').value);
+            const masaKerja = parseInt(document.getElementById('masaKerja').value);
+    
+            const totalGaji = gajiPokok + tunjangan;
+    
+            let thr = 0;
+            if (masaKerja > 12) {
+                thr = totalGaji;
+            } else if (masaKerja ==12) {
+                thr = (masaKerja / 12) * totalGaji; 
+            } else {
+                thr = 0; 
+        }
+    
+            const ptkp = 4500000; 
+            let pph = 0;
+            if (totalGaji > ptkp) {
+                pph = 0.05 * totalGaji;
+            }
+    
+            const totalPembayaran = thr + pph;
+    
+            document.getElementById("").innerHTML=totalGaji;
+        }
+    </script>
+    
+</body>
+</html>
